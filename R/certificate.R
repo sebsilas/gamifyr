@@ -76,11 +76,11 @@ create_certificate <- function(name, score) {
 
   score <- as.character(score)
 
-  cat(file=stderr(), "create_certificate")
+  cat(file=stderr(), "create_certificate", "\n")
 
   cat(file=stderr(), system.file("extdata/certificate_template_pdf.Rmd", package = "gamifyr"))
 
-  cat(file=stderr(), "read_file...")
+  cat(file=stderr(), "read_file...", "\n")
 
 
   # load either pdf or word certificate template
@@ -91,25 +91,26 @@ create_certificate <- function(name, score) {
     stringr::str_replace("<<FIRSTNAME>>", name) %>%
     stringr::str_replace("<<SCORE>>", score)
 
-  cat(file=stderr(), "create_certificate_filename")
+  cat(file=stderr(), "create_certificate_filename", "\n")
 
   #generate an output file name based on student name
   out_filename <- create_certificate_filename(name, score)
 
+  cat(file=stderr(), out_filename, "\n")
 
-  cat(file=stderr(), "write_file...")
+  cat(file=stderr(), "write_file...", "\n")
 
 
   #save customized Rmd to a temporary file
   readr::write_file(current_cert, "/srv/shiny-server/create-certificate/tmp.Rmd")
 
-  cat(file=stderr(), "render...")
+  cat(file=stderr(), "render...", "\n")
 
   #create the certificates using R markdown.
   #it will detect the ending of the output file and use the right format
   rmarkdown::render("/srv/shiny-server/create-certificate/tmp.Rmd", output_file = out_filename)
 
-  cat(file=stderr(), "file.remove...")
+  cat(file=stderr(), "file.remove...", "\n")
 
   #temporary Rmd file can be deleted.
   file.remove("/srv/shiny-server/create-certificate/tmp.Rmd")
