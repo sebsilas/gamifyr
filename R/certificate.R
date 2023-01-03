@@ -62,6 +62,15 @@ certificate_app <- function() {
 
 
 
+#' Create certificate
+#'
+#' @param name
+#' @param score
+#'
+#' @return
+#' @export
+#'
+#' @examples
 create_certificate <- function(name, score) {
 
   score <- as.character(score)
@@ -89,8 +98,20 @@ create_certificate <- function(name, score) {
   file.remove("tmp.Rmd")
 }
 
-# create_certificate("Seb", 50)
 
+#' Create certificate filename
+#'
+#' @param name
+#' @param score
+#'
+#' @return
+#' @export
+#'
+#' @examples
 create_certificate_filename <- function(name, score) {
   paste(name, score, 'Certificate',sep="_") %>% paste0('certificates/', . ,'.pdf')
 }
+
+
+# create_certificate("Seb", 50)
+
