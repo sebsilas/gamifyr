@@ -89,14 +89,14 @@ create_certificate <- function(name, score) {
   out_filename <- create_certificate_filename(name, score)
 
   #save customized Rmd to a temporary file
-  readr::write_file(current_cert, "tmp.Rmd")
+  readr::write_file(current_cert, "/srv/shiny-server/create-certificate/tmp.Rmd")
 
   #create the certificates using R markdown.
   #it will detect the ending of the output file and use the right format
-  rmarkdown::render("tmp.Rmd", output_file = out_filename)
+  rmarkdown::render("/srv/shiny-server/create-certificate/tmp.Rmd", output_file = out_filename)
 
   #temporary Rmd file can be deleted.
-  file.remove("tmp.Rmd")
+  file.remove("/srv/shiny-server/create-certificate/tmp.Rmd")
 }
 
 
