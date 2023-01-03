@@ -1,0 +1,38 @@
+
+
+body {
+  font-size: 22px;
+}
+
+h4 {
+  font-size: 26px;
+  font-weight: 100;
+  font-family: 'Helvetica, Arial', sans-serif;
+  color: #2b2b2b;
+}
+
+
+
+#graph {
+  width: 900px;
+  position: absolute;
+  margin-left:-450px;
+  left: 50%;
+}
+
+/* Themes */
+
+.btn {
+  background-color: #8BC6EC;
+  background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
+  color: #fff;
+  border: solid 1px #5a60c4;
+  margin-top: 10px;
+}
+
+.btn:hover {
+ border: solid 1px #000;
+}
+
+
+

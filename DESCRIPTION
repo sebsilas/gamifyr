@@ -1,0 +1,39 @@
+Package: gamifyr
+Type: Package
+Title: What the Package Does (Title Case)
+Version: 0.1.0
+Author: Who wrote it
+Maintainer: The package maintainer <yourself@somewhere.net>
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    BDT (>= 0.1.2),
+    DT,
+    EDT (>= 1.2.1),
+    htmltools,
+    magrittr,
+    mdt (>= 2.7.0),
+    mpt (>= 0.13.0),
+    piat (>= 0.4.0),
+    plotly,
+    plumber,
+    psychTestR (>= 2.23.2),
+    psyquest (>= 1.3.0),
+    RAT (>= 0.1.5),
+    readr,
+    SAA (>= 0.0.0.9000),
+    stringr
+Remotes: 
+    fmhoeger/psyquest,
+    sebsilas/psychTestR,
+    pmcharrison/mdt,
+    pmcharrison/mpt,
+    pmcharrison/piat,
+    klausfrieler/BDT,
+    klausfrieler/EDT,
+    klausfrieler/RAT,
+    sebsilas/SAA
+RoxygenNote: 7.1.1

@@ -1,0 +1,19 @@
+---
+title: ""
+output: pdf_document
+classoption: landscape
+---
+
+\begin{center}
+\includegraphics[height=4cm]{inst/extdata/fig1.png}
+\hfill
+\includegraphics[height=4cm]{inst/extdata/fig2.png} \\
+\bigskip
+{\Huge\bf Certificate of Accomplishment } \\
+\bigskip
+{\Huge <<FIRSTNAME>> } \\
+\bigskip
+{\Large has successfully completed the {\it Discover Your Musical Genius} test with a score of <<SCORE>> } \\
+\bigskip
+{\Huge Congratulations!}
+\end{center}
