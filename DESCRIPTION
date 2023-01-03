@@ -19,7 +19,6 @@ Imports:
     mpt (>= 0.13.0),
     piat (>= 0.4.0),
     plotly,
-    plumber,
     psychTestR (>= 2.23.2),
     psyquest (>= 1.3.0),
     RAT (>= 0.1.5),
