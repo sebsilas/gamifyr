@@ -16,6 +16,7 @@ function(name, score) {
 # plumber::pr("R/certificate.R") %>% plumber::pr_run(port=8000)
 
 # http://localhost:8000/createcertificate?name=Seb&score=50
+# http://adaptiveeartraining.com/:4000/create-certificate?name=Seb&score=50
 
 # res <- httr::GET("http://localhost:8000/createcertificate", query = list(name = "Seb", score = 52))
 # status_code(res)
