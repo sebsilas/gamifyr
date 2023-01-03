@@ -102,6 +102,7 @@ create_certificate <- function(name, score) {
 
 
   #save customized Rmd to a temporary file
+
   readr::write_file(current_cert, "/srv/shiny-server/create-certificate/tmp.Rmd")
 
   cat(file=stderr(), "render...", "\n")
@@ -127,7 +128,7 @@ create_certificate <- function(name, score) {
 #'
 #' @examples
 create_certificate_filename <- function(name, score) {
-  paste(name, score, 'Certificate',sep="_") %>% paste0('certificates/', . ,'.pdf')
+  paste(name, score, 'Certificate',sep="_") %>% paste0('/srv/shiny-server/create-certificate/certificates/', . ,'.pdf')
 }
 
 
