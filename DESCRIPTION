@@ -28,8 +28,9 @@ Imports:
     readr,
     SAA (>= 0.0.0.9000),
     shinyjs,
-    stringr
-Remotes: 
+    stringr,
+    tptR (>= 0.1.0)
+Remotes:  
     fmhoeger/psyquest,
     sebsilas/psychTestR,
     pmcharrison/mdt,
@@ -38,7 +39,8 @@ Remotes:
     klausfrieler/BDT,
     klausfrieler/EDT,
     klausfrieler/RAT,
-    sebsilas/SAA
+    sebsilas/SAA,
+    harin-git/tptR
 RoxygenNote: 7.1.1
 URL: https://github.com/sebsilas/gamifyr
 BugReports: https://github.com/sebsilas/gamifyr/issues
