@@ -2,8 +2,9 @@
 
 
 run_app <- function(title = "Discover Your Musical Genius!",
-                            admin_password = "demo",
-                            researcher_email = "D.Mullensiefen@gold.ac.uk") {
+                    admin_password = "demo",
+                    researcher_email = "D.Mullensiefen@gold.ac.uk",
+                    musicassessr_aws = FALSE) {
 
   shiny::addResourcePath(
     prefix = "abcd_assets", # custom prefix that will be used to reference your directory
@@ -53,7 +54,7 @@ run_app <- function(title = "Discover Your Musical Genius!",
                                                  additional_scripts = c("https://cdn.plot.ly/plotly-latest.min.js",
                                                                         system.file('www/js/scatter_3d.js', package = 'gamifyr'),
                                                                         system.file('www/js/themes.js', package = 'gamifyr'),
-                                                                        musicassessr::musicassessr_js(musicassessr_aws = TRUE, visual_notation = TRUE, app_name = "ABCD")
+                                                                        musicassessr::musicassessr_js(musicassessr_aws = musicassessr_aws, visual_notation = TRUE, app_name = "ABCD")
                                                                         ))
                         )
 }
