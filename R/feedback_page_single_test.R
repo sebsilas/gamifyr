@@ -8,7 +8,7 @@ feedback_page_single_test <- function() {
     shiny::tags$div(
       shiny::tags$p(pretty_percentile(score)),
       shiny::renderPlot({
-        musicassessr::plot_normal_dist_plus_score(mean = 50, sd = 10, highlighted_score = score)
+        musicassessr::plot_normal_dist_plus_score(mean = 50, sd = 10, highlighted_score = score*100)
       })
     )
   )

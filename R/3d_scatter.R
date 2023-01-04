@@ -13,7 +13,7 @@ core_tests_feedback <- function() {
     bat_ability <- sample(0:100, 1, replace = TRUE)
     mpt_ability <- sample(0:100, 1, replace = TRUE)
 
-    leaderboard <- readr::read_csv(file = 'inst/extdata/leaderboard.csv')
+    leaderboard <- readr::read_csv(file = system.file('extdata/leaderboard.csv', package = 'gamifyr'))
 
     columns2hide <- c("mdt_ability", "bat_ability", "mpt_ability")
 
