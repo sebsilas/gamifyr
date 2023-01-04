@@ -28,10 +28,8 @@ run_app <- function(title = "Discover Your Musical Genius!",
                )
     ),
 
-    change_theme_one_button_page('mpt', "Now you will do a mistuning perception test!"),
-    change_theme_one_button_page('mdt', "Now you will do a melodic perception test!"),
-    change_theme_one_button_page('bat', "Now you will do a beat perception test!"),
 
+    core_tests(num_items = 1L),
 
     change_theme_one_button_page('main', "Well done! You have finished the main tests, click to see your results before moving onto one final test of your choice."),
 
@@ -40,9 +38,6 @@ run_app <- function(title = "Discover Your Musical Genius!",
     optional_test_selector(),
 
     conditional_optional_test(num_items = 1L),
-
-    core_tests(num_items = 1L),
-
 
     psychTestR::final_page("You have reached the end, congratulations!")
   )
@@ -57,7 +52,8 @@ run_app <- function(title = "Discover Your Musical Genius!",
                                                  logo_right = FALSE,
                                                  additional_scripts = c("https://cdn.plot.ly/plotly-latest.min.js",
                                                                         system.file('www/js/scatter_3d.js', package = 'gamifyr'),
-                                                                        system.file('www/js/themes.js', package = 'gamifyr')
+                                                                        system.file('www/js/themes.js', package = 'gamifyr'),
+                                                                        musicassessr::musicassessr_js(musicassessr_aws = TRUE, visual_notation = TRUE, app_name = "ABCD")
                                                                         ))
                         )
 }

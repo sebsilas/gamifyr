@@ -1,6 +1,7 @@
 exportPattern("^[[:alpha:]]+")
 export("%>%")
 importFrom(magrittr,"%>%")
+importFrom(promises, "%...>%")
 import(dplyr)
 import(shiny)
 import(psychTestR)

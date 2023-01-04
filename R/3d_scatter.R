@@ -13,7 +13,7 @@ core_tests_feedback <- function() {
     bat_ability <- sample(0:100, 1, replace = TRUE)
     mpt_ability <- sample(0:100, 1, replace = TRUE)
 
-    leaderboard <- readr::read_csv(file = 'leaderboard.csv')
+    leaderboard <- readr::read_csv(file = 'inst/extdata/leaderboard.csv')
 
     columns2hide <- c("mdt_ability", "bat_ability", "mpt_ability")
 
@@ -34,6 +34,31 @@ core_tests_feedback <- function() {
                                             test = "ABCDStudy",
                                             url = "http://ABCDStudy.com")
 
+    future::plan(future::multisession, workers = 2)
+
+    future::future({
+      httr::GET("http://adaptiveeartraining.com:4000/createcertificate?name=Seb&score=50", query = list(name = "Seb", score = 52))
+      }) %...>% (function(certificate_req) {
+
+    certificate_req_status <- httr::status_code(certificate_req)
+
+    logging::loginfo(paste0('Certificate request status code: ', certificate_req_status))
+
+    if(certificate_req_status == 200) {
+
+      certificate_url <- httr::content(certificate_req)[[1]] %>% stringr::str_replace('/srv/shiny-server/', "https://adaptiveeartraining.com/")
+
+      shinyjs::runjs(paste0("
+                   var download_certficate_button = document.getElementById('download_certificate_button');
+                   download_certficate_button.addEventListener('click', function() { window.open(\'", certificate_url, "\') });
+                   download_certificate_button.classList.add('btn');
+                   download_certficate_button.style.visibility = 'visible';
+                   "))
+    }
+
+  })
+
+
     ui <- tags$div(
       tags$h3("Your Musical Genius Score!"),
       tags$h4("Leaderboard"),
@@ -43,6 +68,8 @@ core_tests_feedback <- function() {
       tags$div(id = 'graph'),
       tags$div(style = "margin-top: 950px;",
         socials,
+        tags$br(),
+        shiny::tags$button("Download Your Certificate!", id = "download_certificate_button", style = "visibility: hidden"),
         tags$br(),
         psychTestR::trigger_button("next", "Next")
         )
