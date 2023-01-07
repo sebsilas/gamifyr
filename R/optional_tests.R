@@ -49,16 +49,27 @@ test_name_to_acronym <- function(test) {
 }
 
 
-# optional_test_selector <- function() {
-#   dropdown_page(label = "optional_test_selector",
-#                 prompt = "What test would you like to do next?",
-#                 choices = optional_tests())
-# }
 
 optional_test_acryonyms <- c('rat', 'edt', 'tpt', 'bdt', 'piat', 'saa')
 
 
 optional_test_selector <- function() {
+
+  join(
+
+    psychTestR::code_block(function(state, answer, ...) {
+      answer(state) <- TRUE
+    }),
+
+    psychTestR::while_loop(test = function(state, ... ) {
+      answer(state) == TRUE
+    }, logic = optional_test_selector_page()
+    )
+  )
+}
+
+
+optional_test_selector_page <- function() {
 
   optional_test_acryonyms_shuffled <- sample(optional_test_acryonyms, length(optional_test_acryonyms))
 
@@ -67,6 +78,7 @@ optional_test_selector <- function() {
   ui <- tags$div(
 
     tags$p("Well done! Now you can choose to do another test of your choice."),
+    tags$p("Or if you'd like to finish, click \"I'm Finished\" below."),
 
     tags$hr(),
 
@@ -81,15 +93,21 @@ optional_test_selector <- function() {
       column(4, tags$h4(test_acronym_to_name(optional_test_acryonyms_shuffled[6])), tags$img(src = test_name_to_sticker(optional_test_acryonyms_shuffled[6]), onclick = set_test(optional_test_acryonyms_shuffled[6]), height = "100px", width = "100px"))
     ),
 
-    tags$br()
-   )
+    tags$br(),
+
+    psychTestR::trigger_button("test_finished", "I'm Finished")
+  )
 
   page(ui, get_answer = function(input, ...) {
-    print(input$optional_test_selection)
-    input$optional_test_selection
-    })
-}
 
+    if(input$last_btn_pressed == "test_finished") {
+      FALSE
+    } else {
+      input$optional_test_selection
+    }
+  })
+
+}
 
 
 set_test <- function(test) {
