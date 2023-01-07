@@ -11,6 +11,7 @@ Encoding: UTF-8
 LazyData: true
 Imports: 
     BDT (>= 0.1.2),
+    cabat (>= 0.11.0),
     DT,
     EDT (>= 1.2.1),
     future,
@@ -40,7 +41,8 @@ Remotes:
     klausfrieler/EDT,
     klausfrieler/RAT,
     sebsilas/SAA,
-    harin-git/tptR
+    harin-git/tptR,
+    pmcharrison/cabat
 RoxygenNote: 7.1.1
 URL: https://github.com/sebsilas/gamifyr
 BugReports: https://github.com/sebsilas/gamifyr/issues
