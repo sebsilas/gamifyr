@@ -35,7 +35,7 @@ mpt_with_welcome <- function(num_items, take_training) {
 
 bat_with_welcome <- function(num_items, take_training) {
   join(
-    change_theme_one_button_page('bat', "Now you will do a rhythm perception test!"),
+    change_theme_one_button_page('bat', "Now you will do a musical beat perception test!"),
     cabat::cabat(num_items = num_items, take_training = take_training),
     feedback_page_single_test(num_items)
   )

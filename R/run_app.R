@@ -1,10 +1,23 @@
 
 
 
+#' Run the ABCD study
+#'
+#' @param title
+#' @param admin_password
+#' @param researcher_email
+#' @param musicassessr_aws
+#' @param app_name
+#'
+#' @return
+#' @export
+#'
+#' @examples
 run_app <- function(title = "Discover Your Musical Genius!",
                     admin_password = "demo",
                     researcher_email = "D.Mullensiefen@gold.ac.uk",
-                    musicassessr_aws = FALSE) {
+                    musicassessr_aws = FALSE,
+                    app_name = "ABCD") {
 
   shiny::addResourcePath(
     prefix = "abcd_assets", # custom prefix that will be used to reference your directory
@@ -54,7 +67,7 @@ run_app <- function(title = "Discover Your Musical Genius!",
                                                  additional_scripts = c("https://cdn.plot.ly/plotly-latest.min.js",
                                                                         system.file('www/js/scatter_3d.js', package = 'gamifyr'),
                                                                         system.file('www/js/themes.js', package = 'gamifyr'),
-                                                                        musicassessr::musicassessr_js(musicassessr_aws = musicassessr_aws, visual_notation = TRUE, app_name = "ABCD")
+                                                                        musicassessr::musicassessr_js(musicassessr_aws = musicassessr_aws, visual_notation = TRUE, app_name = app_name)
                                                                         ))
                         )
 }
