@@ -51,9 +51,8 @@ run_app <- function(title = "Discover Your Musical Genius!",
 
     optional_test_selector(),
 
-    conditional_optional_test(num_items = 1L),
-
     psychTestR::final_page("You have reached the end, congratulations!")
+
   )
 
   psychTestR::make_test(tl,

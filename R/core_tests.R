@@ -3,7 +3,7 @@
 core_tests <- function(num_items = NULL, take_training = FALSE) {
   psychTestR::join(
 
-    psyquest::GMS(short_version = TRUE),
+    psyquest::GMS(short_version = TRUE, configuration_filepath = system.file('extdata/GMSI_items.csv', package = 'gamifyr')),
 
     psychTestR::randomise_at_run_time(
       label = "core_tests",

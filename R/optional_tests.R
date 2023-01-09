@@ -55,17 +55,22 @@ optional_test_acryonyms <- c('rat', 'edt', 'tpt', 'bdt', 'piat', 'saa')
 
 optional_test_selector <- function() {
 
-  join(
+    join(
 
-    psychTestR::code_block(function(state, answer, ...) {
-      answer(state) <- TRUE
-    }),
+      optional_test_selector_page(),
 
-    psychTestR::while_loop(test = function(state, ... ) {
-      answer(state) == TRUE
-    }, logic = optional_test_selector_page()
-    )
+      psychTestR::while_loop(test = function(state, ...) {
+        all(answer(state) %in% unname(optional_tests())) | is.list(answer(state))
+      }, logic = join(
+
+          conditional_optional_test(num_items = 1L),
+
+          optional_test_selector_page()
+
+          )
+      )
   )
+
 }
 
 
@@ -119,15 +124,21 @@ conditional_optional_test <- function(num_items = 1L) {
   purrr::imap(optional_tests(), function(test_fun, test_name) {
 
     if(test_name == "Singing Ability Test") {
-      fun_eval <- eval(parse(text = paste0(test_fun, '(app_name = "ABCD")')))
+      fun_eval <- eval(parse(text = paste0(test_fun, '(app_name = "ABCD", demographics = FALSE, gold_msi = FALSE)')))
     } else {
       fun_eval <- eval(parse(text = paste0(test_fun, '(num_items = ', num_items, ')')))
     }
 
     psychTestR::conditional(test = function(state, ...) {
-      answer(state) == test_fun
+
+      if(is.list(answer(state))) {
+        FALSE
+      } else {
+        answer(state) == test_fun
+      }
     }, logic = fun_eval )
 
   })
 
 }
+
