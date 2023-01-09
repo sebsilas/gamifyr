@@ -1,0 +1,20 @@
+MID,Item,Response,Negative
+AE_01,Ich beschäftige mich in meiner Freizeit viel mit musikbezogenen Aktivitäten.,1 Stimme ganz und gar nicht zu / 2 Stimme nicht zu / 3 Stimme eher nicht zu / 4 Weder noch / 5 Stimme eher zu / 6 Stimme zu / 7 Stimme voll und ganz zu,FALSE
+AE_05,"Ich lese oder suche oft im Internet nach Dingen, die mit Musik zu tun haben.",1 Stimme ganz und gar nicht zu / 2 Stimme nicht zu / 3 Stimme eher nicht zu / 4 Weder noch / 5 Stimme eher zu / 6 Stimme zu / 7 Stimme voll und ganz zu,FALSE
+AE_07,Musik ist für mich eine Art von Sucht – ohne sie könnte ich nicht leben.,1 Stimme ganz und gar nicht zu / 2 Stimme nicht zu / 3 Stimme eher nicht zu / 4 Weder noch / 5 Stimme eher zu / 6 Stimme zu / 7 Stimme voll und ganz zu,FALSE
+EM_01,"Ich suche oft Musik aus, bei der ich eine Gänsehaut bekomme.",1 Stimme ganz und gar nicht zu / 2 Stimme nicht zu / 3 Stimme eher nicht zu / 4 Weder noch / 5 Stimme eher zu / 6 Stimme zu / 7 Stimme voll und ganz zu,FALSE
+EM_03,"Ich suche häufig eine bestimmte Musik aus, um mich zu motivieren oder zu begeistern.",1 Stimme ganz und gar nicht zu / 2 Stimme nicht zu / 3 Stimme eher nicht zu / 4 Weder noch / 5 Stimme eher zu / 6 Stimme zu / 7 Stimme voll und ganz zu,FALSE
+EM_06,Musik kann bei mir Erinnerungen an Personen und Orte hervorrufen.,1 Stimme ganz und gar nicht zu / 2 Stimme nicht zu / 3 Stimme eher nicht zu / 4 Weder noch / 5 Stimme eher zu / 6 Stimme zu / 7 Stimme voll und ganz zu,FALSE
+MT_01,Ich habe  regelmäßig und täglich ein Instrument (einschließlich Gesang) für ____ Jahre geübt.,0 / 1 / 2 / 3 / 4-5 / 6-9 / 10 oder mehr,FALSE
+MT_02,An dem Höhepunkt meines Interesses habe ich mein Hauptinstrument _ Stunden pro Tag geübt.,"0 / 0,5 / 1 / 1,5 / 2 / 3-4 / 5 oder mehr",FALSE
+MT_03,Ich bin noch nie für meine musikalischen Fähigkeiten gelobt worden.,1 Stimme ganz und gar nicht zu / 2 Stimme nicht zu / 3 Stimme eher nicht zu / 4 Weder noch / 5 Stimme eher zu / 6 Stimme zu / 7 Stimme voll und ganz zu,TRUE
+MT_06,Ich kann _ verschiedene Instrumente spielen.,0 / 1 / 2 / 3 / 4 / 5 / 6 oder mehr,FALSE
+PA_01,"Ich kann beurteilen, ob jemand gut singt oder nicht.",1 Stimme ganz und gar nicht zu / 2 Stimme nicht zu / 3 Stimme eher nicht zu / 4 Weder noch / 5 Stimme eher zu / 6 Stimme zu / 7 Stimme voll und ganz zu,FALSE
+PA_06,"Ich kann beurteilen, ob jemand nicht im Rhythmus mit der Musik singt oder spielt.",1 Stimme ganz und gar nicht zu / 2 Stimme nicht zu / 3 Stimme eher nicht zu / 4 Weder noch / 5 Stimme eher zu / 6 Stimme zu / 7 Stimme voll und ganz zu,FALSE
+PA_07,"Ich kann beurteilen, ob jemand falsch oder richtig singt oder spielt.",1 Stimme ganz und gar nicht zu / 2 Stimme nicht zu / 3 Stimme eher nicht zu / 4 Weder noch / 5 Stimme eher zu / 6 Stimme zu / 7 Stimme voll und ganz zu,FALSE
+SA_02,Ich kann auswendig singen oder Musik spielen.,1 Stimme ganz und gar nicht zu / 2 Stimme nicht zu / 3 Stimme eher nicht zu / 4 Weder noch / 5 Stimme eher zu / 6 Stimme zu / 7 Stimme voll und ganz zu,FALSE
+SA_03,"Ich bin in der Lage, die richtigen Töne zu treffen, wenn ich zu einer Aufnahme mitsinge.",1 Stimme ganz und gar nicht zu / 2 Stimme nicht zu / 3 Stimme eher nicht zu / 4 Weder noch / 5 Stimme eher zu / 6 Stimme zu / 7 Stimme voll und ganz zu,FALSE
+SA_04,"Wenn jemand anders ein Lied singt, das ich kenne, kann ich eine zweite Stimme dazu singen.",1 Stimme ganz und gar nicht zu / 2 Stimme nicht zu / 3 Stimme eher nicht zu / 4 Weder noch / 5 Stimme eher zu / 6 Stimme zu / 7 Stimme voll und ganz zu,FALSE
+BI_01,"Das Instrument (einschließlich Gesang), welches ich am besten spiele ist _ .",NA,FALSE
+ST_01,"Mit wie viel Jahren hast du angefangen, ein Instrument zu spielen?",2 - 19 / Ich spiele kein Instrument.,FALSE
+AP_01,"Hast du ein absolutes Gehör? Ein absolutes Gehör ist die Fähigkeit, einen Ton in Isolation ohne Bezugston zu erkennen und zu benennen, z.B. in der Lage zu sein, ein Fis zu erkennen,  wenn jemand ein Fis auf dem Klavier spielt.",Ja / Nein,FALSE
