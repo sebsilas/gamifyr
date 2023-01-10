@@ -36,6 +36,19 @@ test_acronym_to_fun <- function(acronym) {
   tests[[acronym]]
 }
 
+
+test_fun_to_acronym <- function(test_fun) {
+  tests <- list(
+    "RAT::RAT" = "rat",
+    "EDT::EDT" = "edt",
+    "tptR::TPT" = "tpt",
+    "BDT::BDT" = "bdt",
+    "piat::piat" = "piat",
+    "SAA::SAA" = "saa")
+
+  tests[[test_fun]]
+}
+
 test_name_to_acronym <- function(test) {
   tests <- list(
     "Rhythm Ability Test" = "rat",
@@ -50,12 +63,17 @@ test_name_to_acronym <- function(test) {
 
 
 
-optional_test_acryonyms <- c('rat', 'edt', 'tpt', 'bdt', 'piat', 'saa')
-
+optional_test_acronyms <- function() {
+  c('rat', 'edt', 'tpt', 'bdt', 'piat', 'saa')
+}
 
 optional_test_selector <- function() {
 
     join(
+
+      code_block(function(state, ...) {
+        set_global("remaining_tests", optional_test_acronyms(), state)
+      }),
 
       optional_test_selector_page(),
 
@@ -63,7 +81,14 @@ optional_test_selector <- function() {
         all(answer(state) %in% unname(optional_tests())) | is.list(answer(state))
       }, logic = join(
 
-          conditional_optional_test(num_items = 1L),
+          # conditional_optional_test(num_items = 1L),
+
+        order_at_run_time(
+          label = "optional_test",
+          get_order = function(state, ...) {
+            1:length(optional_test_acronyms()) # we have to update this retrospectively, because we don't know in advance what the user's free choice will be
+          },
+          logic = conditional_optional_test()),
 
           optional_test_selector_page()
 
@@ -76,41 +101,78 @@ optional_test_selector <- function() {
 
 optional_test_selector_page <- function() {
 
-  optional_test_acryonyms_shuffled <- sample(optional_test_acryonyms, length(optional_test_acryonyms))
 
-  # Might want to make this more programatic, if we had more tests
+  reactive_page(function(state, ...) {
 
-  ui <- tags$div(
+    remaining_tests <- get_global("remaining_tests", state)
 
-    tags$p("Well done! Now you can choose to do another test of your choice."),
-    tags$p("Or if you'd like to finish, click \"I'm Finished\" below."),
+    print('remain..')
+    print(remaining_tests)
 
-    tags$hr(),
+    if(length(remaining_tests) == length(optional_test_acronyms())) {
+      finished_button <- tags$br()
 
-    fluidRow(
-      column(4, tags$h4(test_acronym_to_name(optional_test_acryonyms_shuffled[1])), tags$img(src = test_name_to_sticker(optional_test_acryonyms_shuffled[1]), onclick = set_test(optional_test_acryonyms_shuffled[1]), height = "100px", width = "100px")),
-      column(4, tags$h4(test_acronym_to_name(optional_test_acryonyms_shuffled[2])), tags$img(src = test_name_to_sticker(optional_test_acryonyms_shuffled[2]), onclick = set_test(optional_test_acryonyms_shuffled[2]), height = "100px", width = "100px")),
-      column(4, tags$h4(test_acronym_to_name(optional_test_acryonyms_shuffled[3])), tags$img(src = test_name_to_sticker(optional_test_acryonyms_shuffled[3]), onclick = set_test(optional_test_acryonyms_shuffled[3]), height = "100px", width = "100px"))
-    ),
-    fluidRow(
-      column(4, tags$h4(test_acronym_to_name(optional_test_acryonyms_shuffled[4])), tags$img(src = test_name_to_sticker(optional_test_acryonyms_shuffled[4]), onclick = set_test(optional_test_acryonyms_shuffled[4]), height = "100px", width = "100px")),
-      column(4, tags$h4(test_acronym_to_name(optional_test_acryonyms_shuffled[5])), tags$img(src = test_name_to_sticker(optional_test_acryonyms_shuffled[5]), onclick = set_test(optional_test_acryonyms_shuffled[5]), height = "100px", width = "100px")),
-      column(4, tags$h4(test_acronym_to_name(optional_test_acryonyms_shuffled[6])), tags$img(src = test_name_to_sticker(optional_test_acryonyms_shuffled[6]), onclick = set_test(optional_test_acryonyms_shuffled[6]), height = "100px", width = "100px"))
-    ),
+      text <- tags$p("Well done! Now please do another test of your choice.")
 
-    tags$br(),
-
-    psychTestR::trigger_button("test_finished", "I'm Finished")
-  )
-
-  page(ui, get_answer = function(input, ...) {
-
-    if(input$last_btn_pressed == "test_finished") {
-      FALSE
     } else {
-      input$optional_test_selection
+      finished_button <- psychTestR::trigger_button("test_finished", "I'm Finished")
+
+      text <- tagList(
+        tags$p("Well done! Now you can choose to do another test of your choice."),
+        tags$p("Or if you'd like to finish, click \"I'm Finished\" below.")
+      )
     }
+
+    logging::loginfo(paste0("Remaining tests: ", paste(remaining_tests, collapse = ", ")))
+
+    if(is.null(remaining_tests)) {
+      optional_test_acronyms_shuffled <- sample(optional_test_acronyms(), length(optional_test_acronyms()))
+
+    } else {
+      optional_test_acronyms_shuffled <- sample(remaining_tests, length(remaining_tests))
+    }
+
+    tagged_tests <- purrr::imap(optional_test_acronyms_shuffled, function(name, i) {
+      tags$div(tags$h4(test_acronym_to_name(optional_test_acronyms_shuffled[i])), tags$img(src = test_name_to_sticker(optional_test_acronyms_shuffled[i]), onclick = set_test(optional_test_acronyms_shuffled[i]), height = "100px", width = "100px"))
+    })
+
+    # Might want to make this more programatic, if we had more tests
+
+    ui <- tags$div(
+
+      text,
+
+      tags$hr(),
+
+      list2grid(tagged_tests, 3),
+
+      tags$br(),
+
+      finished_button
+    )
+
+    page(ui, get_answer = function(input, state, ...) {
+
+      previously_selected_tests <- get_global("previously_selected_tests", state)
+
+      previously_selected_tests <- c(previously_selected_tests, test_fun_to_acronym(input$optional_test_selection))
+
+      set_global("previously_selected_tests", previously_selected_tests, state)
+
+      remaining_tests <- setdiff(optional_test_acronyms(), previously_selected_tests)
+
+      set_global("remaining_tests", remaining_tests, state)
+
+
+      if(input$last_btn_pressed == "test_finished") {
+        FALSE
+      } else {
+        input$optional_test_selection
+      }
+    })
+
   })
+
 
 }
 
@@ -124,7 +186,7 @@ conditional_optional_test <- function(num_items = 1L) {
   purrr::imap(optional_tests(), function(test_fun, test_name) {
 
     if(test_name == "Singing Ability Test") {
-      fun_eval <- eval(parse(text = paste0(test_fun, '(app_name = "ABCD", demographics = FALSE, gold_msi = FALSE)')))
+      fun_eval <- eval(parse(text = paste0(test_fun, '(app_name = "ABCD", demographics = FALSE, gold_msi = FALSE, final_results = FALSE)')))
     } else {
       fun_eval <- eval(parse(text = paste0(test_fun, '(num_items = ', num_items, ')')))
     }
@@ -141,4 +203,6 @@ conditional_optional_test <- function(num_items = 1L) {
   })
 
 }
+
+
 

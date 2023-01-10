@@ -42,6 +42,12 @@ run_app <- function(title = "Discover Your Musical Genius!",
                )
     ),
 
+    #
+    optional_test_selector(),
+
+    psychTestR::final_page("You have reached the end, congratulations!"),
+
+    #
 
     core_tests(num_items = 1L),
 

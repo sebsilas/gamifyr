@@ -53,54 +53,19 @@ test_name_to_sticker <- function(name) {
 }
 
 
+#' Arrange a list into a grid of fluidRows and columns
+#'
+#' @param li A list
+#' @param ncol Number of columns
+#'
+#' @export
+list2grid <- function(li, ncol) {
+  nrow <- ceiling(length(li) / ncol)
+  width = floor(12 / ncol)
 
+  # Ignore warning of data length not matching for the last row
+  li <- suppressWarnings(split(li, rep(1:nrow, each = ncol)))
 
-
-# change_theme <- function(theme = 'yeti') {
-#   shiny::tags$script(
-#     paste0("$('#shinytheme-selector').ready(function() {
-#             console.log('boom');
-#     var allThemes = $(this).find('option').map(function() {
-#     console.log('hasda');
-#     console.log($(this).val());
-#       if ($(this).val() === 'default')
-#         return 'bootstrap';
-#       else
-#         return $(this).val();
-#     });
-#     // Find the current theme
-#     var curTheme = '", theme, "';
-#     if (curTheme === 'default') {
-#       curTheme = 'bootstrap';
-#       curThemePath = 'shared/bootstrap/css/bootstrap.min.css';
-#     } else {
-#       curThemePath = 'shinythemes/css/' + curTheme + '.min.css';
-#     }
-#     // Find the <link> element with that has the bootstrap.css
-#     var $link = $('link').filter(function() {
-#       var theme = $(this).attr('href');
-#       theme = theme.replace(/^.*\\//, '').replace(/(\\.min)?\\.css$/, '');
-#       return $.inArray(theme, allThemes) !== -1;
-#     });
-#
-#     // Set it to the correct path
-#     $link.attr('href', curThemePath);
-#   });"))
-# }
-#
-# allThemes <- function() {
-#   themes <- dir(system.file("shinythemes/css", package = "shinythemes"),
-#                 ".+\\.min.css")
-#   sub(".min.css", "", themes)
-# }
-
-
-
-# change_theme_one_button_page(theme = 'cerulean',
-#                              body = shiny::tags$div(
-#                                shiny::tags$script(
-#                                  "document.getElementsByClassName('draggable')[0].style.visibility = 'hidden';" # This hides the theme selector
-#                                ),
-#                                shiny::tags$p("Welcome to the battery!")
-#                              )),
-
+  out <- purrr::map(li, function(r) fluidRow(purrr::map(r, column, width = width)))
+  tagList(out)
+}
