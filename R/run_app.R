@@ -45,7 +45,9 @@ run_app <- function(title = "Discover Your Musical Genius!",
 
     core_tests(num_items = 1L),
 
-    change_theme_one_button_page('main', "Well done! You have finished the main tests, click to see your results before moving onto one final test of your choice."),
+    change_theme_one_button_page(theme = 'main',
+                                 body = "Well done! You have finished the main tests, click to see your results before moving onto one final test of your choice.",
+                                 content_background = '#fffbed'),
 
     core_tests_feedback(),
 
