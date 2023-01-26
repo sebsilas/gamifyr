@@ -1,0 +1,42 @@
+
+main:
+  title: "Discover Your Musical Genius: Tell us about yourself!"
+  test_acronym: "gms"
+  background_color: "#fff"
+  header_background : "fff"
+  content_background: "fff"
+
+mdt:
+  title: "Melodic Discrimination"
+  test_acronym: "mdt"
+  background_color: "#519bfb"
+  header_background : "083b55"
+  content_background: "fafbfb"
+
+bat:
+  title: "Beat Alignment"
+  test_acronym: "bat"
+  background_color: "#3bacfc"
+  header_background : "#f90047"
+  content_background: "#fafbfb"
+
+
+mpt:
+  title: "Mistuning Perception"
+  test_acronym: "mpt"
+  background_color: "#84c642"
+  header_background : "#083b55"
+  content_background: "#fafbfb"
+  gradient_background_color: "#85FFBD"
+  gradient_background_image: "linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);"
+
+
+
+test:
+  leaderboard: 'leaderboard.csv'
+
+production:
+  leaderboard: 'leaderboard.csv'
+
+
+# config::get("trials", config = "production")

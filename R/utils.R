@@ -1,5 +1,8 @@
 
 
+# scp_up(c('inst/www/css/style_mdt.css', 'inst/www/css/style_mpt.css', 'inst/www/css/style.css', 'inst/www/css/style_bat.css'))
+
+
 scp_up <- function(file_to_up) {
   system2('scp', args = c('-i',
                          '../shiny3.pem',
@@ -8,8 +11,6 @@ scp_up <- function(file_to_up) {
                          'ubuntu@adaptiveeartraining.com:/home/ubuntu'))
 }
 
-# scp_up('inst/www/css/style_bat.css')
-# scp_up(c('inst/www/css/style_mdt.css', 'inst/www/css/style_mpt.css', 'inst/www/css/style.css'))
 
 pretty_percentile <- function(percentile, number_of_people = NULL) {
 

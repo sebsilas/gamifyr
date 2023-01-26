@@ -18,7 +18,8 @@ test_acronym_to_name <- function(acronym) {
         "tpt" = "Timbre Perception Test",
         "bdt" = "Beat Drop Alignment",
         "piat" = "Pitch Imagery Ability Test",
-        "saa" = "Singing Ability Test")
+        "saa" = "Singing Ability Test"
+        )
 
   tests[[acronym]]
 }
@@ -31,7 +32,8 @@ test_acronym_to_fun <- function(acronym) {
     "tpt" = "tptR::TPT",
     "bdt" = "BDT::BDT",
     "piat" = "piat::piat",
-    "saa" = "SAA::SAA")
+    "saa" = "SAA::SAA"
+    )
 
   tests[[acronym]]
 }
@@ -44,7 +46,8 @@ test_fun_to_acronym <- function(test_fun) {
     "tptR::TPT" = "tpt",
     "BDT::BDT" = "bdt",
     "piat::piat" = "piat",
-    "SAA::SAA" = "saa")
+    "SAA::SAA" = "saa"
+    )
 
   tests[[test_fun]]
 }
@@ -56,7 +59,8 @@ test_name_to_acronym <- function(test) {
     "Timbre Perception Test" = "tpt",
     "Beat Drop Alignment" = "bdt",
     "Pitch Imagery Ability Test" = "piat",
-    "Singing Ability Test" = "saa")
+    "Singing Ability Test" = "saa"
+    )
 
   tests[[test]]
 }
@@ -64,7 +68,8 @@ test_name_to_acronym <- function(test) {
 
 
 optional_test_acronyms <- function() {
-  c('rat', 'edt', 'tpt', 'bdt', 'piat', 'saa')
+  c('rat', 'edt', 'tpt', 'bdt', 'piat', 'saa'
+    )
 }
 
 optional_test_selector <- function() {

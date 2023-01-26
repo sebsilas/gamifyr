@@ -28,15 +28,18 @@ update_content_background <- function(background_hex) {
 }
 
 
-
 update_header_background_image <- function(background_image) {
   shiny::tags$script(htmltools::HTML(paste0("document.getElementById('psychTestR_header').style.backgroundImage = 'url(\"", background_image, "\")\';")))
 }
 
 
 
-change_theme_one_button_page <- function(theme, body) {
-  psychTestR::one_button_page(shiny::tags$div(change_theme(theme), body, tags$br()))
+change_theme_one_button_page <- function(theme, body, content_background = NULL) {
+  psychTestR::one_button_page(
+    shiny::tags$div(change_theme(theme),
+                    if(!is.null(content_background)) update_content_background(content_background),
+                    body,
+                    tags$br()))
 }
 
 change_theme <- function(theme) {
