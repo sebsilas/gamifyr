@@ -45,7 +45,8 @@ Remotes:
     klausfrieler/RAT,
     sebsilas/SAA,
     harin-git/tptR,
-    pmcharrison/cabat
+    pmcharrison/cabat,
+    ricardo-bion/ggradar
 RoxygenNote: 7.1.1
 URL: https://github.com/sebsilas/gamifyr
 BugReports: https://github.com/sebsilas/gamifyr/issues
