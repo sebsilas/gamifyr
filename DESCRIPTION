@@ -14,7 +14,9 @@ Imports:
     cabat (>= 0.11.0),
     DT,
     EDT (>= 1.2.1),
+    fmsb,
     future,
+    ggradar,
     htmltools,
     logging,
     magrittr,
@@ -28,10 +30,11 @@ Imports:
     RAT (>= 0.1.5),
     readr,
     SAA (>= 0.0.0.9000),
+    shinyBS,
     shinyjs,
     stringr,
     tptR (>= 0.1.0)
-Remotes:  
+Remotes: 
     fmhoeger/psyquest,
     sebsilas/psychTestR,
     pmcharrison/mdt,
@@ -46,3 +49,5 @@ Remotes:
 RoxygenNote: 7.1.1
 URL: https://github.com/sebsilas/gamifyr
 BugReports: https://github.com/sebsilas/gamifyr/issues
+Depends: 
+    R (>= 2.10)

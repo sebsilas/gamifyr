@@ -32,11 +32,16 @@ mpt:
 
 
 
-test:
+default:
   leaderboard: 'leaderboard.csv'
+  cert_render_path: '/Users/sebsilas/gamifyr/tmp.Rmd'
+  cert_location: '/Users/sebsilas/gamifyr/certificates/'
+  take_training: FALSE
 
 production:
   leaderboard: 'leaderboard.csv'
-
+  cert_render_path: '/srv/shiny-server/create-certificate/tmp.Rmd'
+  cert_location: '/srv/shiny-server/create-certificate/certificates/'
+  take_training: TRUE
 
 # config::get("trials", config = "production")

@@ -1,6 +1,5 @@
 
 
-
 #' Run the ABCD study
 #'
 #' @param title
@@ -24,7 +23,6 @@ run_app <- function(title = "Discover Your Musical Genius!",
     directoryPath = system.file("www", package = "gamifyr") # path to resource in your package
   )
 
-
   tl <- psychTestR::join(
 
     one_button_page(
@@ -37,17 +35,58 @@ run_app <- function(title = "Discover Your Musical Genius!",
           ),
             update_header_background_image('https://i.ibb.co/wBh0TDN/header-bg.jpg'),
             update_content_background('#fafafa'),
-            tags$p("Hello there and welcome to the Musical Genius Study!"),
+            tags$h3("Welcome to the Musical Genius Study!"),
+            tags$p("In this study you can test your ", tags$strong("music skills"), " and discover whether you’re a ", tags$p("musical genius"), "."),
             tags$img(src = 'abcd_assets/img/main_logo.png', height = "300px", width = "300px", style = "margin: 0 0 30px 0")
                )
     ),
 
+    one_button_page(tags$div(
+                    tags$h3("About"),
+                    tags$p("The study has three ", tags$strong("listening tests"), " and a questionnaire.
+                    You'll get ", tags$strong("feedback"), " on how you performed and you can compare your score to other people who have taking the test.
+                    You might get ranked on the ", tags$strong("leaderboard"), " and you can download a ", tags$strong("certificate"), " to share. "))),
+
+    one_button_page(tags$div(tags$h3("About"),
+                    tags$p("Finally, there is also a choice of ",
+                           tags$strong("9 optional tests"), " if you are up for ", tags$strong("more musical challenges!")))),
+
+    one_button_page(tags$div(
+      tags$h3("About"),
+      tags$p("This study is an addition to the ABCD study that you are already taking part in."))),
+
+
+    NAFC_page(label = "playback_device",
+              prompt = "Are you using speakers or headphones to playback sound?",
+              choices = c("Speakers", "Headphones") ),
+
+    text_input_page(label = "username",
+                    prompt = "For our leaderboard later, what is your name, or choose a username",
+                    on_complete = function(state, answer, ...){
+                      set_global("username", answer, state)
+                    }),
+
+    NAFC_page(label = "gender",
+              prompt = "For our leaderboard later, what is your gender?",
+              choices = c("Male", "Female", "Other", "Rather not say"),
+              on_complete = function(state, answer, ...){
+                set_global("gender", answer, state)
+              }),
+
+    slider_page(label = "age",
+              prompt = "For our leaderboard later, what is your age?",
+              min = 12,
+              max = 100,
+              value = 40,
+              on_complete = function(state, answer, ...){
+                set_global("age", answer, state)
+              }),
+
+    psychTestR::new_timeline(musicassessr::get_user_info_page(), dict = musicassessr::dict(NULL) ),
 
     core_tests(num_items = 1L),
 
-    change_theme_one_button_page(theme = 'main',
-                                 body = "Well done! You have finished the main tests, click to see your results before moving onto one final test of your choice.",
-                                 content_background = '#fffbed'),
+    one_button_page("Well done! You have finished the main tests, click to see your results before moving onto one final test of your choice."),
 
     core_tests_feedback(),
 
