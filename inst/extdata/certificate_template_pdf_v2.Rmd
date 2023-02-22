@@ -1,0 +1,35 @@
+---
+title: ""
+output: pdf_document
+classoption: landscape
+---
+
+\begin{center}
+\includegraphics[height=4cm]{/Users/sebsilas/gamifyr/inst/extdata/fig1.png}
+\hfill
+\includegraphics[height=4cm]{/Users/sebsilas/gamifyr/inst/extdata/fig2.png} \\
+\bigskip
+{\Huge\bf Certificate of Accomplishment } \\
+\bigskip
+{\Huge <<name>> } \\
+\bigskip
+{\Large has successfully completed the {\it Discover Your Musical Genius} test with a score of <<overall_score>> } \\
+\bigskip
+{\Huge Congratulations!} \\
+\bigskip
+{\Large Mistuning Perception = <<mpt>> } \\
+{\Large Melodic Discrimination = <<mdt>> } \\
+{\Large Beat Alignment = <<bat>> } \\
+{\Large Rhythm Ability = <<rat>> } \\
+{\Large Emotional Discrimination = <<edt>> } \\
+{\Large Timbre Perception = <<tpt>> } \\
+{\Large Beat Drop Alignment = <<bdt>> } \\
+{\Large Pitch Imagery Ability = <<piat>> } \\
+{\Large Harmonic Perception = <<hpt>> } \\
+{\Large Musical Scene Analysis = <<msa>> } \\
+{\Large Musical Preferences, Mellow = <<mus_mellow>> } \\
+{\Large Musical Preferences, Unpretentious = <<mus_unpretentious>> } \\
+{\Large Musical Preferences, Sophisticated = <<mus_sophisticiated>> } \\
+{\Large Musical Preferences, Intense = <<mus_intense>> } \\
+{\Large Singing Ability = <<saa>> } \\
+\end{center}

@@ -1,5 +1,5 @@
 
-
+var data;
 
 function plot_3d(x_coords, y_coords, z_coords) {
   console.log('plot_3d!');
@@ -42,14 +42,22 @@ function plot_3d(x_coords, y_coords, z_coords) {
 		}
   };
 
-  var data = [population, highlighted];
+  data = [population, highlighted];
 
   console.log(data);
   console.log(layout);
-  Plotly.plot('graph', data, layout);
+
+
+  if(is_graph_defined()) {
+    Plotly.plot('graph', data, layout);
+  }
 
 }
 
+function is_graph_defined() {
+  var graph = document.getElementById("graph");
+  typeof graph !== null;
+}
 
 function update_plot_3d(x_coords, y_coords, z_coords) {
 
@@ -67,6 +75,8 @@ function update_plot_3d(x_coords, y_coords, z_coords) {
       },
       type: 'scatter3d'
   };
+
+  console.log("Note, this doesn't show the real score!!!");
 
   var highlighted = {
       x: [50],
@@ -93,7 +103,9 @@ function update_plot_3d(x_coords, y_coords, z_coords) {
 
   var data = [population, highlighted];
 
-  Plotly.newPlot('graph', data, layout);
+  if(is_graph_defined()) {
+    Plotly.newPlot('graph', data, layout);
+  }
 
 }
 

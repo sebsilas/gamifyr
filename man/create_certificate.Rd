@@ -4,10 +4,10 @@
 \alias{create_certificate}
 \title{Create certificate}
 \usage{
-create_certificate(name, score)
+create_certificate(name, overall, scores)
 }
 \arguments{
-\item{score}{}
+\item{scores}{}
 }
 \value{
 
