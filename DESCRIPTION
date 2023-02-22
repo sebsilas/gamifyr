@@ -18,6 +18,7 @@ Imports:
     fmsb,
     future,
     ggradar,
+    gridExtra,
     HPT (>= 0.1.0),
     htmltools,
     logging,
@@ -37,7 +38,7 @@ Imports:
     shinyjs,
     stringr,
     tptR (>= 0.1.0)
-Remotes:  
+Remotes: 
     fmhoeger/psyquest,
     sebsilas/psychTestR,
     pmcharrison/mdt,
