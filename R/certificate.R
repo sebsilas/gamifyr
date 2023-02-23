@@ -21,7 +21,7 @@
 #* @param tpt
 #* @get /createcertificate
 function(name,
-         overall,
+         overall_score,
          bat,
          bdt,
          edt,
@@ -39,7 +39,7 @@ function(name,
          tpt) {
 
   gamifyr::create_certificate(name,
-                              overall,
+                              overall_score,
                               bat,
                               bdt,
                               edt,
@@ -73,7 +73,7 @@ function(name,
 #' Create certificate
 #'
 #' @param name
-#' @param overall
+#' @param overall_score
 #* @param bat
 #* @param bdt
 #* @param edt
@@ -95,7 +95,7 @@ function(name,
 #'
 #' @examples
 create_certificate <- function(name,
-                               overall,
+                               overall_score,
                                bat, # Core test
                                bdt = NA,
                                edt = NA,
@@ -128,7 +128,7 @@ create_certificate <- function(name,
   #replace the placeholder words in the template with the student information
   current_cert <- template %>%
     stringr::str_replace("<<name>>", as.character(name)) %>%
-    stringr::str_replace("<<overall_score>>", as.character(overall)) %>%
+    stringr::str_replace("<<overall_score>>", as.character(overall_score)) %>%
     stringr::str_replace("<<mpt>>", as.character(mpt)) %>%
     stringr::str_replace("<<mdt>>", as.character(mdt)) %>%
     stringr::str_replace("<<bat>>", as.character(bat)) %>%
