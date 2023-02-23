@@ -54,7 +54,9 @@ pretty_percentile <- function(percentile, number_of_people = NULL) {
 
 get_test_percentile <- function(test_name, raw_score) {
 
-  test_name <- toupper(test_name)
+  if(!grepl("STOMP", test_name)) {
+    test_name <- toupper(test_name)
+  }
 
   percentile_fun <- aggregated_data_long %>%
     filter(Test == test_name) %>%

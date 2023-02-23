@@ -100,8 +100,6 @@ get_plot <- function(test_acronym,
 }
 
 get_test_percentile_wrapper <- function(test_acronym, score) {
-  print('get_test_percentile_wrapper')
-  print(test_acronym)
   if(test_acronym == "TPT") {
     percentile_score <- score/100
   } else if(test_acronym == "mus") {

@@ -14,7 +14,7 @@ Imports:
     cabat (>= 0.11.0),
     config,
     DT,
-    EDT (>= 1.2.1),
+    EDT (>= 1.2.2),
     fmsb,
     future,
     ggradar,

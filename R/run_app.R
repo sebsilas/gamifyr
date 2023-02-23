@@ -64,7 +64,11 @@ run_app <- function(title = "Discover Your Musical Genius!",
                     prompt = "For our leaderboard later, what is your name, or choose a username",
                     on_complete = function(state, answer, ...){
                       set_global("username", answer, state)
-                    }),
+                    },
+                    validate = function(answer, ...) {
+                      if (nchar(answer) < 1) "You must enter something!" else TRUE
+                    }
+                    ),
 
     NAFC_page(label = "gender",
               prompt = "For our leaderboard later, what is your gender?",
@@ -87,6 +91,8 @@ run_app <- function(title = "Discover Your Musical Genius!",
     core_tests(num_items = 1L),
 
     one_button_page("Well done! You have finished the main tests, click to see your results before moving onto one final test of your choice."),
+
+    core_tests_feedback(),
 
     optional_test_selector(),
 

@@ -9,13 +9,20 @@ get_completed_test_score <- function(test_acronym, state, as_percentile = FALSE)
     return(NA)
   } else {
     score <- test_scores %>%
-      filter(test_acronym == !!test_acronym_lower )
+      filter(test_acronym == !!test_acronym_lower ) %>%
       pull(score) %>%
       as.numeric()
   }
 
+
   if(as_percentile) {
-    get_test_percentile(test_acronym, score) %>% round(2) %>% magrittr::multiply_by(100)
+    if(grepl("mus_", test_acronym)) {
+      test_acronym <- paste0("STOMP", stringr::str_to_sentence(stringr::str_remove(test_acronym, "mus_")))
+      score <- get_test_percentile(test_acronym, score) %>% round(2) %>% magrittr::multiply_by(100)
+    } else {
+      score <- get_test_percentile(toupper(test_acronym), score) %>% round(2) %>% magrittr::multiply_by(100)
+    }
+
   } else {
     score
   }
@@ -132,6 +139,8 @@ optional_test_selector <- function(test = FALSE) {
       optional_test_selector_page(test = test),
 
       psychTestR::code_block(function(state, answer, ...) {
+        print('code_blockaa')
+        print(answer)
         if(answer == "back_to_core_results") {
           psychTestR::skip_n_pages(state, n = -5)
         }
@@ -169,7 +178,7 @@ optional_test_selector_page <- function(remaining_tests = NULL, test = FALSE) {
     previously_selected_tests <- setdiff(optional_test_acronyms(), remaining_tests) %>%
       setNames(rep("completed", length(.)))
 
-    if(length(remaining_tests) == length(optional_test_acronyms())) {
+    if(length(remaining_tests) == 0) {
       finished_button <- tags$br()
 
       text <- tags$p("Well done! Now please do another test of your choice.")
@@ -217,6 +226,8 @@ optional_test_selector_page <- function(remaining_tests = NULL, test = FALSE) {
 
     page(ui, get_answer = function(input, state, ...) {
 
+      print('1293123h')
+      print(input$last_btn_pressed )
 
       if(input$last_btn_pressed == "back_to_core_results") {
         return("back_to_core_results")
@@ -234,6 +245,9 @@ optional_test_selector_page <- function(remaining_tests = NULL, test = FALSE) {
 
       set_global("remaining_tests", remaining_tests, state)
 
+      print('asdi2222')
+      print(input$last_btn_pressed )
+
       if(input$last_btn_pressed == "test_finished") {
         FALSE
       } else if(input$last_btn_pressed == "back_to_core_results") {
@@ -241,6 +255,8 @@ optional_test_selector_page <- function(remaining_tests = NULL, test = FALSE) {
       } else {
         input$optional_test_selection
       }
+
+
     })
 
   })
@@ -337,8 +353,6 @@ produce_tagged_tests_completed <- function(optional_test_acronyms_shuffled, stat
     i <- which(test_name == optional_test_acronyms_shuffled)
 
     if(status == "completed") {
-      print('produce_tagged_tests_completed')
-      print(test_name)
       if(test_name == "mus") {
         completed_plot <- get_mus_score_plot(state)
       } else {

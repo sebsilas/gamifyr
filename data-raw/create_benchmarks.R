@@ -51,6 +51,9 @@ aggregated_data <- aggregated_data %>%
     STOMPIntense.score_mean = 4.2,
     STOMPIntense.score_sd = 1.76,
 
+    STOMPContemporary.score_mean =  5.02,
+    STOMPContemporary.score_sd = 1.27,
+
     SAA.score_mean = 0.00,
     SAA.score_sd = 0.11
   )

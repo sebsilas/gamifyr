@@ -36,7 +36,8 @@ core_tests_feedback <- function(scatter = FALSE, test = FALSE) {
         tags$p("On the next page discover your Musical Genius Score and compare it to others.")
       )
 
-      one_button_page(ui)
+      change_theme_one_button_page(theme = 'main', body = ui)
+
 
     }),
 
@@ -287,6 +288,8 @@ construct_query_url <- function(username, musical_genius_score, bat_percentile_s
   piat_percentile_score <- get_completed_test_score("piat", state, as_percentile = TRUE)
   rat_percentile_score <- get_completed_test_score("rat", state, as_percentile = TRUE)
   saa_percentile_score <- get_completed_test_score("saa", state, as_percentile = TRUE)
+  saa_percentile_score <- NA
+  warning('SAA percentile fixed to NA for now...')
   tpt_percentile_score <- get_completed_test_score("tpt", state, as_percentile = TRUE)
 
 
