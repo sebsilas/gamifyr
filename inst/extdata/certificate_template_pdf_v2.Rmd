@@ -31,5 +31,6 @@ classoption: landscape
 {\Large Musical Preferences, Unpretentious = <<mus_unpretentious>> } \\
 {\Large Musical Preferences, Sophisticated = <<mus_sophisticiated>> } \\
 {\Large Musical Preferences, Intense = <<mus_intense>> } \\
+{\Large Musical Preferences, Contemporary = <<mus_contemporary>> } \\
 {\Large Singing Ability = <<saa>> } \\
 \end{center}

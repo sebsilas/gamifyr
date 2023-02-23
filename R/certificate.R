@@ -15,6 +15,7 @@
 #* @param mus_unpretentious
 #* @param mus_sophisticiated
 #* @param mus_intense
+#* @param mus_contemporary
 #* @param piat
 #* @param rat
 #* @param saa
@@ -33,6 +34,7 @@ function(name,
          mus_unpretentious,
          mus_sophisticiated,
          mus_intense,
+         mus_contemporary,
          piat,
          rat,
          saa,
@@ -51,6 +53,7 @@ function(name,
                               mus_unpretentious,
                               mus_sophisticiated,
                               mus_intense,
+                              mus_contemporary,
                               piat,
                               rat,
                               saa,
@@ -85,6 +88,7 @@ function(name,
 #* @param mus_unpretentious
 #* @param mus_sophisticiated
 #* @param mus_intense
+#* @param mus_contemporary
 #* @param piat
 #* @param rat
 #* @param saa
@@ -143,6 +147,7 @@ create_certificate <- function(name,
     stringr::str_replace("<<mus_unpretentious>>", if(is.na(mus_unpretentious)) "n/a" else as.character(mus_unpretentious)) %>%
     stringr::str_replace("<<mus_sophisticiated>>", if(is.na(mus_sophisticiated)) "n/a" else as.character(mus_sophisticiated)) %>%
     stringr::str_replace("<<mus_intense>>", if(is.na(mus_intense)) "n/a" else as.character(mus_intense)) %>%
+    stringr::str_replace("<<mus_contemporary>>", if(is.na(mus_contemporary)) "n/a" else as.character(mus_contemporary)) %>%
     stringr::str_replace("<<saa>>", if(is.na(saa)) "n/a" else as.character(saa))
 
   print(current_cert)
@@ -150,7 +155,7 @@ create_certificate <- function(name,
   cat(file=stderr(), "create_certificate_filename", "\n")
 
   #generate an output file name based on student name
-  out_filename <- create_certificate_filename(name, overall)
+  out_filename <- create_certificate_filename(name, overall_score)
 
   cat(file=stderr(), out_filename, "\n")
 
@@ -178,14 +183,14 @@ create_certificate <- function(name,
 #' Create certificate filename
 #'
 #' @param name
-#' @param score
+#' @param overall_score
 #'
 #' @return
 #' @export
 #'
 #' @examples
-create_certificate_filename <- function(name, score) {
-  paste(name, score, 'Certificate',sep="_") %>% paste0(config::get("cert_location"), . ,'.pdf')
+create_certificate_filename <- function(name, overall_score) {
+  paste(name, overall_score, 'Certificate',sep="_") %>% paste0(config::get("cert_location"), . ,'.pdf')
 }
 
 

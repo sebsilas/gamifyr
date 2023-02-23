@@ -6,7 +6,7 @@
 \usage{
 create_certificate(
   name,
-  overall,
+  overall_score,
   bat,
   bdt = NA,
   edt = NA,
@@ -25,7 +25,7 @@ create_certificate(
 )
 }
 \arguments{
-\item{overall}{}
+\item{overall_score}{}
 }
 \value{
 

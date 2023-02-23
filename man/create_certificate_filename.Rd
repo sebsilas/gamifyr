@@ -4,10 +4,10 @@
 \alias{create_certificate_filename}
 \title{Create certificate filename}
 \usage{
-create_certificate_filename(name, score)
+create_certificate_filename(name, overall_score)
 }
 \arguments{
-\item{score}{}
+\item{overall_score}{}
 }
 \value{
 
