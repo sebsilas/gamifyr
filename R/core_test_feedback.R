@@ -127,8 +127,13 @@ core_tests_feedback <- function(scatter = FALSE, test = FALSE) {
 
       future::plan(future::multisession, workers = 2)
 
+      # Construct query url
+
+      query_url <- construct_query_url(username, musical_genius_score, bat_percentile_score, mdt_percentile_score, mpt_percentile_score, state)
+
+
       future::future({
-        httr::GET(paste0("http://adaptiveeartraining.com:4000/createcertificate?name=", username, "&score=", musical_genius_score), query = list(name = username, score = musical_genius_score))
+        httr::GET(query_url, query = list(name = username, score = musical_genius_score))
         }) %...>% (function(certificate_req) {
 
       certificate_req_status <- httr::status_code(certificate_req)
@@ -139,12 +144,7 @@ core_tests_feedback <- function(scatter = FALSE, test = FALSE) {
 
         certificate_url <- httr::content(certificate_req)[[1]] %>% stringr::str_replace('/srv/shiny-server/', "https://adaptiveeartraining.com/")
 
-        shinyjs::runjs(paste0("
-                     var download_certficate_button = document.getElementById('download_certificate_button');
-                     download_certficate_button.addEventListener('click', function() { window.open(\'", certificate_url, "\') });
-                     download_certificate_button.classList.add('btn');
-                     download_certficate_button.style.visibility = 'visible';
-                     "))
+        shinyjs::runjs(certificate_js(certificate_url))
       }
 
     })
@@ -269,6 +269,36 @@ set_score <- function(score_tb, acronym, new_score) {
 
 }
 
+
+
+
+construct_query_url <- function(username, musical_genius_score, bat_percentile_score, mdt_percentile_score, mpt_percentile_score, state) {
+  paste0("http://adaptiveeartraining.com:4000/createcertificate?name=", username,
+         "&overall_score=", musical_genius_score,
+         "bat=", bat_percentile_score,
+         "bdt=", get_completed_test_score("bdt", state, as_percentile = TRUE),
+         "edt=", get_completed_test_score("edt", state, as_percentile = TRUE),
+         "hpt=", get_completed_test_score("hpt", state, as_percentile = TRUE),
+         "mdt=", mdt_percentile_score,
+         "mpt=", mpt_percentile_score,
+         "msa=", get_completed_test_score("msa", state, as_percentile = TRUE),
+         "mus_mellow=", get_completed_test_score("mus_mellow", state, as_percentile = TRUE),
+         "mus_unpretentious=", get_completed_test_score("mus_unpretentious", state, as_percentile = TRUE),
+         "mus_sophisticiated=", get_completed_test_score("mus_sophisticiated", state, as_percentile = TRUE),
+         "mus_intense=", get_completed_test_score("mus_intense", state, as_percentile = TRUE),
+         "piat=", get_completed_test_score("piat", state, as_percentile = TRUE),
+         "rat=", get_completed_test_score("rat", state, as_percentile = TRUE),
+         "saa=", get_completed_test_score("saa", state, as_percentile = TRUE),
+         "tpt=", get_completed_test_score("tpt", state, as_percentile = TRUE))
+}
+
+
+certificate_js <- function(certificate_url) {
+  paste0("var download_certficate_button = document.getElementById('download_certificate_button');
+          download_certficate_button.addEventListener('click', function() { window.open(\'", certificate_url, "\') });
+          download_certificate_button.classList.add('btn');
+          download_certficate_button.style.visibility = 'visible';")
+}
 
 
 # Create dummy leaderboard data

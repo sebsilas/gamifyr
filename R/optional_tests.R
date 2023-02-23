@@ -1,12 +1,18 @@
 
-get_completed_test_score <- function(test_acronym, state) {
+get_completed_test_score <- function(test_acronym, state, as_percentile = FALSE) {
 
-  test_acronym <- tolower(test_acronym)
+  test_acronym_lower <- tolower(test_acronym)
 
-  psychTestR::get_global("test_scores", state) %>%
-    filter(test_acronym == !!test_acronym ) %>%
+  score <- psychTestR::get_global("test_scores", state) %>%
+    filter(test_acronym == !!test_acronym_lower ) %>%
     pull(score) %>%
     as.numeric()
+
+  if(as_percentile) {
+    get_test_percentile(test_acronym, score) %>% round(2) %>% magrittr::multiply_by(100)
+  } else {
+    score
+  }
 }
 
 optional_tests <- function() {

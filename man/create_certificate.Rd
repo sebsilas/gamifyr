@@ -4,10 +4,28 @@
 \alias{create_certificate}
 \title{Create certificate}
 \usage{
-create_certificate(name, overall, scores)
+create_certificate(
+  name,
+  overall,
+  bat,
+  bdt = NA,
+  edt = NA,
+  hpt = NA,
+  mdt,
+  mpt,
+  msa = NA,
+  mus_mellow = NA,
+  mus_unpretentious = NA,
+  mus_sophisticiated = NA,
+  mus_intense = NA,
+  piat = NA,
+  rat = NA,
+  saa = NA,
+  tpt = NA
+)
 }
 \arguments{
-\item{scores}{}
+\item{overall}{}
 }
 \value{
 
