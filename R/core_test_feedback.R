@@ -131,6 +131,7 @@ core_tests_feedback <- function(scatter = FALSE, test = FALSE) {
 
       query_url <- construct_query_url(username, musical_genius_score, bat_percentile_score, mdt_percentile_score, mpt_percentile_score, state)
 
+      print(query_url)
 
       future::future({
         httr::GET(query_url, query = list(name = username, score = musical_genius_score))
@@ -273,23 +274,41 @@ set_score <- function(score_tb, acronym, new_score) {
 
 
 construct_query_url <- function(username, musical_genius_score, bat_percentile_score, mdt_percentile_score, mpt_percentile_score, state) {
+
+  bdt_percentile_score <- get_completed_test_score("bdt", state, as_percentile = TRUE)
+  edt_percentile_score <- get_completed_test_score("edt", state, as_percentile = TRUE)
+  hpt_percentile_score <- get_completed_test_score("hpt", state, as_percentile = TRUE)
+  msa_percentile_score <- get_completed_test_score("msa", state, as_percentile = TRUE)
+  mus_mellow_percentile_score <- get_completed_test_score("mus_mellow", state, as_percentile = TRUE)
+  mus_unpretentious_percentile_score <- get_completed_test_score("mus_unpretentious", state, as_percentile = TRUE)
+  mus_sophisticated_percentile_score <- get_completed_test_score("mus_sophisticated", state, as_percentile = TRUE)
+  mus_contemporary_percentile_score <- get_completed_test_score("mus_contemporary", state, as_percentile = TRUE)
+  mus_intense_percentile_score <- get_completed_test_score("mus_intense", state, as_percentile = TRUE)
+  piat_percentile_score <- get_completed_test_score("piat", state, as_percentile = TRUE)
+  rat_percentile_score <- get_completed_test_score("rat", state, as_percentile = TRUE)
+  saa_percentile_score <- get_completed_test_score("saa", state, as_percentile = TRUE)
+  tpt_percentile_score <- get_completed_test_score("tpt", state, as_percentile = TRUE)
+
+
   paste0("http://adaptiveeartraining.com:4000/createcertificate?name=", username,
          "&overall_score=", musical_genius_score,
-         "bat=", bat_percentile_score,
-         "bdt=", get_completed_test_score("bdt", state, as_percentile = TRUE),
-         "edt=", get_completed_test_score("edt", state, as_percentile = TRUE),
-         "hpt=", get_completed_test_score("hpt", state, as_percentile = TRUE),
-         "mdt=", mdt_percentile_score,
-         "mpt=", mpt_percentile_score,
-         "msa=", get_completed_test_score("msa", state, as_percentile = TRUE),
-         "mus_mellow=", get_completed_test_score("mus_mellow", state, as_percentile = TRUE),
-         "mus_unpretentious=", get_completed_test_score("mus_unpretentious", state, as_percentile = TRUE),
-         "mus_sophisticiated=", get_completed_test_score("mus_sophisticiated", state, as_percentile = TRUE),
-         "mus_intense=", get_completed_test_score("mus_intense", state, as_percentile = TRUE),
-         "piat=", get_completed_test_score("piat", state, as_percentile = TRUE),
-         "rat=", get_completed_test_score("rat", state, as_percentile = TRUE),
-         "saa=", get_completed_test_score("saa", state, as_percentile = TRUE),
-         "tpt=", get_completed_test_score("tpt", state, as_percentile = TRUE))
+         "&bat=", bat_percentile_score,
+         if(!is.na(bdt_percentile_score)) paste0("&bdt=", get_completed_test_score("bdt", state, as_percentile = TRUE)),
+         if(!is.na(edt_percentile_score)) paste0("&edt=", get_completed_test_score("edt", state, as_percentile = TRUE)),
+         if(!is.na(hpt_percentile_score)) paste0("&hpt=", get_completed_test_score("hpt", state, as_percentile = TRUE)),
+         "&mdt=", mdt_percentile_score,
+         "&mpt=", mpt_percentile_score,
+         if(!is.na(msa_percentile_score)) paste0("&msa=", get_completed_test_score("msa", state, as_percentile = TRUE)),
+         if(!is.na(mus_mellow_percentile_score)) paste0("&mus_mellow=", get_completed_test_score("mus_mellow", state, as_percentile = TRUE)),
+         if(!is.na(mus_unpretentious_percentile_score)) paste0("&mus_unpretentious=", get_completed_test_score("mus_unpretentious", state, as_percentile = TRUE)),
+         if(!is.na(mus_sophisticated_percentile_score)) paste0("&mus_sophisticated=", get_completed_test_score("mus_sophisticated", state, as_percentile = TRUE)),
+         if(!is.na(mus_intense_percentile_score)) paste0("&mus_intense=", get_completed_test_score("mus_intense", state, as_percentile = TRUE)),
+         if(!is.na(mus_contemporary_percentile_score)) paste0("&mus_contemporary=", get_completed_test_score("mus_contemporary", state, as_percentile = TRUE)),
+         if(!is.na(piat_percentile_score)) paste0("&piat=", get_completed_test_score("piat", state, as_percentile = TRUE)),
+         if(!is.na(rat_percentile_score)) paste0("&rat=", get_completed_test_score("rat", state, as_percentile = TRUE)),
+         if(!is.na(saa_percentile_score)) paste0("&saa=", get_completed_test_score("saa", state, as_percentile = TRUE)),
+         if(!is.na(tpt_percentile_score)) paste0("&tpt=", get_completed_test_score("tpt", state, as_percentile = TRUE))
+  )
 }
 
 
