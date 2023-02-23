@@ -173,6 +173,7 @@ create_certificate <- function(name,
 }
 
 # create_certificate(name = "Sebb", overall = 100, mdt = 50, mpt = 25, bat = 30)
+# gamifyr::create_certificate(name = "Sebb", overall = 100, mdt = 50, mpt = 25, bat = 30)
 
 #' Create certificate filename
 #'
@@ -189,5 +190,5 @@ create_certificate_filename <- function(name, overall_score) {
 
 
 
-
+# http://adaptiveeartraining.com:4000/createcertificate?name=Seb&overall_score=22&bat=26&mdt=37&mpt=4
 

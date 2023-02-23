@@ -44,6 +44,6 @@ production:
   cert_render_path: '/srv/shiny-server/create-certificate/tmp.Rmd'
   cert_location: '/srv/shiny-server/create-certificate/certificates/'
   take_training: TRUE
-  cert_file: "extdata/certificate_template_pdf_v2_production.Rmd"
+  cert_file: "extdata/certificate_template_pdf_v2_prod.Rmd"
 
 # config::get("trials", config = "production")
