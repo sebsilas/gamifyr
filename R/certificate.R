@@ -24,21 +24,21 @@
 function(name,
          overall_score,
          bat,
-         bdt,
-         edt,
-         hpt,
+         bdt = NA,
+         edt = NA,
+         hpt = NA,
          mdt,
          mpt,
-         msa,
-         mus_mellow,
-         mus_unpretentious,
-         mus_sophisticiated,
-         mus_intense,
-         mus_contemporary,
-         piat,
-         rat,
-         saa,
-         tpt) {
+         msa = NA,
+         mus_mellow = NA,
+         mus_unpretentious = NA,
+         mus_sophisticiated = NA,
+         mus_intense = NA,
+         mus_contemporary = NA,
+         piat = NA,
+         rat = NA,
+         saa = NA,
+         tpt = NA) {
 
   gamifyr::create_certificate(name,
                               overall_score,
@@ -120,15 +120,8 @@ create_certificate <- function(name,
   # https://www.andreashandel.com/posts/2020-10-15-customized-documents-with-rmarkdown/#templates
 
 
-  cat(file=stderr(), "create_certificate", "\n")
-
-  cat(file=stderr(), system.file("extdata/certificate_template_pdf_v2.Rmd", package = "gamifyr"))
-
-  cat(file=stderr(), "read_file...", "\n")
-
-
   # load either pdf or word certificate template
-  template <- readr::read_file(system.file("extdata/certificate_template_pdf_v2.Rmd", package = "gamifyr"))
+  template <- readr::read_file(system.file(config::get('cert_file'), package = "gamifyr"))
 
   #replace the placeholder words in the template with the student information
   current_cert <- template %>%
