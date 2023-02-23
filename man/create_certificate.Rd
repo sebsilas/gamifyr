@@ -18,6 +18,7 @@ create_certificate(
   mus_unpretentious = NA,
   mus_sophisticiated = NA,
   mus_intense = NA,
+  mus_contemporary = NA,
   piat = NA,
   rat = NA,
   saa = NA,

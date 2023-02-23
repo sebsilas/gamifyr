@@ -3,7 +3,7 @@
 
 #* Create certificate and return its name
 #* @param name Name to go on certificate.
-#* @param overall The overall score.
+#* @param overall_score The overall score.
 #* @param bat
 #* @param bdt
 #* @param edt
@@ -59,7 +59,7 @@ function(name,
                               saa,
                               tpt)
 
-  gamifyr::create_certificate_filename(name, score)
+  gamifyr::create_certificate_filename(name, overall_score)
 }
 
 # plumber::pr("R/certificate.R") %>% plumber::pr_run(port=8000)
@@ -111,6 +111,7 @@ create_certificate <- function(name,
                                mus_unpretentious = NA,
                                mus_sophisticiated = NA,
                                mus_intense = NA,
+                               mus_contemporary = NA,
                                piat = NA,
                                rat = NA,
                                saa = NA,
