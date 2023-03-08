@@ -7,6 +7,7 @@
 #' @param researcher_email
 #' @param musicassessr_aws
 #' @param app_name
+#' @param num_items
 #'
 #' @return
 #' @export
@@ -16,7 +17,8 @@ run_app <- function(title = "Discover Your Musical Genius!",
                     admin_password = "demo",
                     researcher_email = "D.Mullensiefen@gold.ac.uk",
                     musicassessr_aws = FALSE,
-                    app_name = "ABCD") {
+                    app_name = "ABCD",
+                    num_items = 5L) {
 
   shiny::addResourcePath(
     prefix = "abcd_assets", # custom prefix that will be used to reference your directory
@@ -88,7 +90,7 @@ run_app <- function(title = "Discover Your Musical Genius!",
 
     psychTestR::new_timeline(musicassessr::get_user_info_page(), dict = musicassessr::dict(NULL) ),
 
-    core_tests(num_items = 1L),
+    core_tests(num_items = num_items),
 
     one_button_page("Well done! You have finished the main tests, click to see your results before moving onto one final test of your choice."),
 

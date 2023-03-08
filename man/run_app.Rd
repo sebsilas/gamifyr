@@ -9,11 +9,12 @@ run_app(
   admin_password = "demo",
   researcher_email = "D.Mullensiefen@gold.ac.uk",
   musicassessr_aws = FALSE,
-  app_name = "ABCD"
+  app_name = "ABCD",
+  num_items = 5L
 )
 }
 \arguments{
-\item{app_name}{}
+\item{num_items}{}
 }
 \value{
 
