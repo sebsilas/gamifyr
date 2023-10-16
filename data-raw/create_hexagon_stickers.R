@@ -277,3 +277,19 @@ rtt_sticker <- sticker('data-raw/sticker_images/input/other/rtt.png',
 
 rtt_sticker
 
+
+# gamifyr
+
+gamifyr_sticker <- sticker('data-raw/sticker_images/input/other/gamifyr.png',
+                       package="gamifyr",
+                       h_color = "#94afe5",
+                       p_color = "#ce747a",
+                       h_fill = "#fafbfb",
+                       p_size=12, s_x=1,
+                       s_y=.8, s_width=.40,
+                       filename = 'data-raw/sticker_images/output/gamifyr_sticker.png',
+                       white_around_sticker = FALSE)
+
+gamifyr_sticker
+
+

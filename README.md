@@ -1,10 +1,13 @@
 
 
+[https://musicassessr.com/assets/gamifyr_sticker.png](gamifyr)
+
+`gamifyr` is part of the [`musicassessr`](https://sebsilas.github.io/musicassessr/) framework.
+
+
 # Motivation 
 
-<video width="320" height="240" controls>
-  <source src="https://www.youtube.com/embed/dmDrZg0R0ZU?si=N2ksxUYLQ-8z6g1W" type="video/mp4">
-</video>
+[![gamifyr](https://musicassessr.com/assets/gamifyr_vid.gif)](https://www.youtube.com/watch?v=dmDrZg0R0ZU)
 
 (Silas, 2023)
 
@@ -12,6 +15,26 @@
 
 # Usage
 
+```r
+
+gamifyr::change_theme
+
+gamifyr::change_theme_one_button_page
+
+gamifyr::create_certificate
+
+gamifyr::produce_3d_scatter
+
+```
+
+
+```{r}
+
+## Update Functions
+
+gamifyr::update_background
+
+```
 
 # Attributions
 
