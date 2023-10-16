@@ -15,7 +15,7 @@ reference:
 - title: "Create graphics"
   desc: >
    Functions for producing some form of plot or graphics
-    contents:
+  contents:
     - create_certificate
     - produce_3d_scatter
 - title: "internal"
