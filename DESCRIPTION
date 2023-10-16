@@ -10,7 +10,7 @@ Authors@R:
            comment = c(ORCID = "0000-0001-8140-6528"))
 Maintainer: Seb Silas <sebsilas@gmail.com>
 Description: gamifyr is an R package to help "gamify" psychTestR psychology tests by enhancing test aesthetics and adding features which might increase intrinsic or motivation.
-License: What license is it under?
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports: 

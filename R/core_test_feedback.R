@@ -225,6 +225,17 @@ callback_js <- function() {
 
 
 
+#' Produce a 3D scatter graph of three scores
+#'
+#' @param leaderboard
+#' @param mdt_ability
+#' @param bat_ability
+#' @param mpt_ability
+#'
+#' @return
+#' @export
+#'
+#' @examples
 produce_3d_scatter <- function(leaderboard, mdt_ability, bat_ability, mpt_ability) {
 
   leaderboard <- leaderboard %>%
