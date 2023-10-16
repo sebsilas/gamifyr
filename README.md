@@ -1,6 +1,6 @@
 
 
-[https://musicassessr.com/assets/gamifyr_sticker.png](gamifyr)
+[gamifyr]([https://musicassessr.com/assets/gamifyr_sticker.png)
 
 `gamifyr` is part of the [`musicassessr`](https://sebsilas.github.io/musicassessr/) framework.
 
@@ -9,9 +9,9 @@
 
 [![gamifyr](https://musicassessr.com/assets/gamifyr_vid.gif)](https://www.youtube.com/watch?v=dmDrZg0R0ZU)
 
-(Silas, 2023)
 
-`gamifyr` is an *R* package to help "gamify" [*psychTestR*](https://pmcharrison.github.io/psychTestR/)(Harrison, 2020) psychology tests by enhancing test aesthetics and adding features which might increase intrinsic or motivation.
+
+`gamifyr` (Silas, 2023) is an *R* package to help "gamify" [*psychTestR*](https://pmcharrison.github.io/psychTestR/) (Harrison, 2020) psychology tests by enhancing test aesthetics and adding features which might increase intrinsic or motivation.
 
 # Usage
 
@@ -27,10 +27,10 @@ gamifyr::produce_3d_scatter
 
 ```
 
+# Update Functions
+
 
 ```{r}
-
-## Update Functions
 
 gamifyr::update_background
 

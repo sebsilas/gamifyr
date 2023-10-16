@@ -6,6 +6,7 @@
 \usage{
 scp_down(
   file_to_down,
+  host = "ubuntu@adaptiveeartraining.com",
   download_loc = "/Users/sebsilas/Downloads",
   key = Sys.getenv("AWS_KEY_LOC")
 )
