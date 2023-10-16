@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://sebsilas.github.io/gamifyr/404.html</loc>
+  </url>
+  <url>
+    <loc>https://sebsilas.github.io/gamifyr/authors.html</loc>
+  </url>
+  <url>
+    <loc>https://sebsilas.github.io/gamifyr/index.html</loc>
+  </url>
+  <url>
+    <loc>https://sebsilas.github.io/gamifyr/reference/create_certificate.html</loc>
+  </url>
+  <url>
+    <loc>https://sebsilas.github.io/gamifyr/reference/create_certificate_filename.html</loc>
+  </url>
+  <url>
+    <loc>https://sebsilas.github.io/gamifyr/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>https://sebsilas.github.io/gamifyr/reference/list2grid.html</loc>
+  </url>
+  <url>
+    <loc>https://sebsilas.github.io/gamifyr/reference/pipe.html</loc>
+  </url>
+  <url>
+    <loc>https://sebsilas.github.io/gamifyr/reference/run_app.html</loc>
+  </url>
+  <url>
+    <loc>https://sebsilas.github.io/gamifyr/reference/scp_down.html</loc>
+  </url>
+  <url>
+    <loc>https://sebsilas.github.io/gamifyr/reference/scp_up.html</loc>
+  </url>
+</urlset>
