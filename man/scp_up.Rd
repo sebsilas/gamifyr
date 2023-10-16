@@ -9,9 +9,6 @@ scp_up(file_to_up)
 \arguments{
 \item{file_to_up}{}
 }
-\value{
-
-}
 \description{
 Scp up
 }

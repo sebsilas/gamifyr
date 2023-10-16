@@ -16,9 +16,6 @@ run_app(
 \arguments{
 \item{num_items}{}
 }
-\value{
-
-}
 \description{
 Run the ABCD study
 }

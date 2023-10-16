@@ -28,9 +28,6 @@ create_certificate(
 \arguments{
 \item{overall_score}{}
 }
-\value{
-
-}
 \description{
 Create certificate
 }

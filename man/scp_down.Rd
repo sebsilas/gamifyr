@@ -4,13 +4,14 @@
 \alias{scp_down}
 \title{Scp down}
 \usage{
-scp_down(file_to_down)
+scp_down(
+  file_to_down,
+  download_loc = "/Users/sebsilas/Downloads",
+  key = Sys.getenv("AWS_KEY_LOC")
+)
 }
 \arguments{
-\item{file_to_down}{}
-}
-\value{
-
+\item{key}{}
 }
 \description{
 Scp down

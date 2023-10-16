@@ -9,9 +9,6 @@ create_certificate_filename(name, overall_score)
 \arguments{
 \item{overall_score}{}
 }
-\value{
-
-}
 \description{
 Create certificate filename
 }

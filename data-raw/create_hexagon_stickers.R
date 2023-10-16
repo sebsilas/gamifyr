@@ -173,5 +173,107 @@ tpt_sticker
 
 
 
+# musicassessr
 
+musicassessr_sticker <- sticker('data-raw/sticker_images/input/other/musicassessr.png',
+                       package = "musicassessr",
+                       p_color = "#f8523f",
+                       h_color = "#18b896",
+                       h_fill = "#fafbfb",
+                       p_size=10, s_x=1, s_y=.65, s_width=.7,
+                       filename = 'data-raw/sticker_images/output/musicassessr_sticker.png',
+                       white_around_sticker = FALSE)
+
+musicassessr_sticker
+
+
+# pbet
+
+pbet_sticker <- sticker('data-raw/sticker_images/input/other/pbet.png',
+                                package = "PBET",
+                                p_color = "#555a66",
+                                h_color = "#00b8c1",
+                                h_fill = "#fafbfb",
+                                p_size=12, s_x=1, s_y=.70, s_width=.50,
+                                filename = 'data-raw/sticker_images/output/pbet_sticker.png',
+                                white_around_sticker = FALSE)
+
+pbet_sticker
+
+
+# pyin
+
+pyin_sticker <- sticker('data-raw/sticker_images/input/other/pyin.png',
+                        package = "pyin",
+                        p_color = "#f0295a",
+                        h_color = "#5c5c5c",
+                        h_fill = "#fafbfb",
+                        p_size=12, s_x=1, s_y=.70, s_width=.80,
+                        filename = 'data-raw/sticker_images/output/pyin_sticker.png',
+                        white_around_sticker = FALSE)
+
+pyin_sticker
+
+
+
+# saa
+
+saa_sticker <- sticker('data-raw/sticker_images/input/other/saa.png',
+                        package = "SAA",
+                        p_color = "#bb8bf3",
+                        h_color = "#45413c",
+                        h_fill = "#fafbfb",
+                        p_size=12, s_x=1, s_y=.80, s_width=.50,
+                        filename = 'data-raw/sticker_images/output/saa_sticker.png',
+                        white_around_sticker = FALSE)
+
+saa_sticker
+
+
+
+
+# PDT
+
+pdt_sticker <- sticker(sticker_imgs[5],
+                       package="PDT",
+                       p_color = "#519bfb",
+                       h_color = "#083b55",
+                       h_fill = "#fafbfb",
+                       p_size=20, s_x=1, s_y=.8, s_width=.60,
+                       filename = 'data-raw/sticker_images/output/pdt_sticker.png',
+                       white_around_sticker = FALSE)
+
+pdt_sticker
+
+
+
+# itembankr
+
+itembankr_sticker <- sticker('data-raw/sticker_images/input/other/itembankr.png',
+                       package="itembankr",
+                       p_color = "#fe646f",
+                       h_color = "#083b55",
+                       h_fill = "#fafbfb",
+                       p_size=12, s_x=1,
+                       s_y=.8, s_width=.40,
+                       filename = 'data-raw/sticker_images/output/itembankr_sticker.png',
+                       white_around_sticker = FALSE)
+
+itembankr_sticker
+
+
+
+# RTT
+
+rtt_sticker <- sticker('data-raw/sticker_images/input/other/rtt.png',
+                             package="RTT",
+                             p_color = "#f5604c",
+                             h_color = "#083b55",
+                             h_fill = "#fafbfb",
+                             p_size=12, s_x=1,
+                             s_y=.8, s_width=.40,
+                             filename = 'data-raw/sticker_images/output/rtt_sticker.png',
+                             white_around_sticker = FALSE)
+
+rtt_sticker
 

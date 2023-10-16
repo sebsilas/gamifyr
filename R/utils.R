@@ -22,20 +22,23 @@ scp_up <- function(file_to_up) {
 #' Scp down
 #'
 #' @param file_to_down
+#' @param host
+#' @param download_loc
+#' @param key
 #'
 #' @return
 #' @export
 #'
 #' @examples
-scp_down <- function(file_to_down) {
+scp_down <- function(file_to_down, host = 'ubuntu@adaptiveeartraining.com', download_loc = "/Users/sebsilas/Downloads", key = Sys.getenv("AWS_KEY_LOC")) {
   system2('scp', args = c('-i',
-                          '../shiny3.pem',
+                          key,
                           '-r',
-                          paste0('ubuntu@adaptiveeartraining.com:',
-                          file_to_down),
-                          "/Users/sebsilas/Downloads"))
+                          paste0(host, ':', file_to_down),
+                          download_loc))
 }
 
+# scp_down('/srv/shiny-server/dots_demo2/.', host = 'ubuntu@54.217.149.206')
 
 pretty_percentile <- function(percentile, number_of_people = NULL) {
 
