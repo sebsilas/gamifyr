@@ -14,28 +14,9 @@
 `gamifyr` is part of the [`musicassessr`](https://sebsilas.github.io/musicassessr/) framework.
 
 
-# Usage
+# Documentation
 
-```r
-
-gamifyr::change_theme
-
-gamifyr::change_theme_one_button_page
-
-gamifyr::create_certificate
-
-gamifyr::produce_3d_scatter
-
-```
-
-# Update Functions
-
-
-```r
-
-gamifyr::update_background
-
-```
+The main functions are documented [here](https://sebsilas.github.io/gamifyr/reference/index.html).
 
 # References
 

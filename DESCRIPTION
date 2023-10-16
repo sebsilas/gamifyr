@@ -41,7 +41,8 @@ Imports:
     shinyBS,
     shinyjs,
     stringr,
-    tptR (>= 0.1.0)
+    tptR (>= 0.1.0),
+    usethis
 Remotes: 
     klausfrieler/psyquest,
     pmcharrison/psychTestR,
