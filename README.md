@@ -1,6 +1,6 @@
 
 
-[gamifyr](https://musicassessr.com/assets/gamifyr_sticker.png)
+![gamifyr](https://musicassessr.com/assets/gamifyr_sticker.png)
 
 `gamifyr` is part of the [`musicassessr`](https://sebsilas.github.io/musicassessr/) framework.
 
