@@ -1,9 +1,9 @@
-url: ~
+url: https://sebsilas.github.io/gamifyr/
 template:
   bootstrap: 5
 
 reference:
-- title: "Change theme""
+- title: "Change theme"
   desc: >
    Functions to change the theme of a psychTestR test.
   contents:
@@ -18,3 +18,11 @@ reference:
     contents:
     - create_certificate
     - produce_3d_scatter
+- title: "internal"
+  contents:
+  - create_certificate
+  - create_certificate_filename
+  - list2grid
+  - run_app
+  - scp_down
+  - scp_up
