@@ -1,7 +1,7 @@
 
 # *gamifyr*
 
-<img src = "https://musicassessr.com/assets/gamifyr_sticker.png" alt = "gamifyr" width = "200" height = "243" />
+<img src = "https://musicassessr.com/assets/gamifyr_sticker.png" alt = "gamifyr" width = "100" height = "116" />
 
 `gamifyr` is part of the [`musicassessr`](https://sebsilas.github.io/musicassessr/) framework.
 
