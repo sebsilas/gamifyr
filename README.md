@@ -3,16 +3,17 @@
 
 <img src = "https://musicassessr.com/assets/gamifyr_sticker.png" alt = "gamifyr" width = "100" height = "116" />
 
-`gamifyr` is part of the [`musicassessr`](https://sebsilas.github.io/musicassessr/) framework.
 
-
-# Motivation 
+## Motivation 
 
 [![gamifyr](https://musicassessr.com/assets/gamifyr_vid.gif)](https://www.youtube.com/watch?v=dmDrZg0R0ZU)
 
 
 
 `gamifyr` (Silas, 2023) is an *R* package to help "gamify" [*psychTestR*](https://pmcharrison.github.io/psychTestR/) (Harrison, 2020) psychology tests by enhancing test aesthetics and adding features which might increase intrinsic or motivation.
+
+`gamifyr` is part of the [`musicassessr`](https://sebsilas.github.io/musicassessr/) framework.
+
 
 # Usage
 
