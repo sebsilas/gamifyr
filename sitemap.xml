@@ -4,10 +4,22 @@
     <loc>https://sebsilas.github.io/gamifyr/404.html</loc>
   </url>
   <url>
+    <loc>https://sebsilas.github.io/gamifyr/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>https://sebsilas.github.io/gamifyr/LICENSE.html</loc>
+  </url>
+  <url>
     <loc>https://sebsilas.github.io/gamifyr/authors.html</loc>
   </url>
   <url>
     <loc>https://sebsilas.github.io/gamifyr/index.html</loc>
+  </url>
+  <url>
+    <loc>https://sebsilas.github.io/gamifyr/reference/change_theme.html</loc>
+  </url>
+  <url>
+    <loc>https://sebsilas.github.io/gamifyr/reference/change_theme_one_button_page.html</loc>
   </url>
   <url>
     <loc>https://sebsilas.github.io/gamifyr/reference/create_certificate.html</loc>
@@ -25,6 +37,9 @@
     <loc>https://sebsilas.github.io/gamifyr/reference/pipe.html</loc>
   </url>
   <url>
+    <loc>https://sebsilas.github.io/gamifyr/reference/produce_3d_scatter.html</loc>
+  </url>
+  <url>
     <loc>https://sebsilas.github.io/gamifyr/reference/run_app.html</loc>
   </url>
   <url>
@@ -32,5 +47,23 @@
   </url>
   <url>
     <loc>https://sebsilas.github.io/gamifyr/reference/scp_up.html</loc>
+  </url>
+  <url>
+    <loc>https://sebsilas.github.io/gamifyr/reference/update_background.html</loc>
+  </url>
+  <url>
+    <loc>https://sebsilas.github.io/gamifyr/reference/update_content_background.html</loc>
+  </url>
+  <url>
+    <loc>https://sebsilas.github.io/gamifyr/reference/update_element.html</loc>
+  </url>
+  <url>
+    <loc>https://sebsilas.github.io/gamifyr/reference/update_header_background.html</loc>
+  </url>
+  <url>
+    <loc>https://sebsilas.github.io/gamifyr/reference/update_header_background_image.html</loc>
+  </url>
+  <url>
+    <loc>https://sebsilas.github.io/gamifyr/reference/update_image.html</loc>
   </url>
 </urlset>
