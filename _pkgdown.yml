@@ -2,3 +2,19 @@ url: ~
 template:
   bootstrap: 5
 
+reference:
+- title: "Change theme""
+  desc: >
+   Functions to change the theme of a psychTestR test.
+  contents:
+  - starts_with("change_theme")
+- title: "Update"
+  desc: "Functions for updating a design element."
+  contents:
+  - starts_with("update")
+- title: "Create graphics"
+  desc: >
+   Functions for producing some form of plot or graphics
+    contents:
+    - create_certificate
+    - produce_3d_scatter
